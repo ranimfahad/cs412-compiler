@@ -1,0 +1,95 @@
+=== Abstract Syntax Tree ===
+Program
+  VarDecl int limit  [line 3]
+    init: Int 5
+  VarDecl float scale  [line 4]
+    init: Float 2.5
+  VarDecl bool verbose  [line 5]
+  FuncDecl int fact  [line 7]
+    params:
+      Param int n
+    body: Block  [line 7]
+      If  [line 8]
+        cond: Binary <=
+          Var n
+          Int 1
+        then: Block  [line 8]
+          Return  [line 9]
+            Int 1
+      Return  [line 11]
+        Binary *
+          Var n
+          Call fact
+            args:
+              Binary -
+                Var n
+                Int 1
+  FuncDecl float average  [line 14]
+    params:
+      Param int a
+      Param int b
+    body: Block  [line 14]
+      Return  [line 15]
+        Binary /
+          Binary +
+            Var a
+            Var b
+          Float 2.0
+  FuncDecl void report  [line 18]
+    params:
+      Param int value
+    body: Block  [line 18]
+      Print  [line 19]
+        Var value
+      Return  [line 20]
+  FuncDecl void main  [line 23]
+    params: (none)
+    body: Block  [line 23]
+      VarDecl int i  [line 24]
+      VarDecl bool done  [line 25]
+        init: Bool false
+      For  [line 27]
+        init: Assign i  [line 27]
+          Int 0
+        cond: Binary <
+          Var i
+          Var limit
+        update: Assign i  [line 27]
+          Binary +
+            Var i
+            Int 1
+        body: Block  [line 27]
+          Print  [line 28]
+            Call fact
+              args:
+                Var i
+      While  [line 31]
+        cond: Unary !
+          Var done
+        body: Block  [line 31]
+          Assign i  [line 32]
+            Binary -
+              Var i
+              Int 1
+          If  [line 33]
+            cond: Binary ==
+              Var i
+              Int 2
+            then: Block  [line 33]
+              Assign done  [line 34]
+                Bool true
+            else: Block  [line 35]
+              ExprStmt  [line 36]
+                Call report
+                  args:
+                    Var i
+      Print  [line 40]
+        Binary *
+          Call average
+            args:
+              Var i
+              Int 10
+          Var scale
+
+Summary: 0 lexical errors, 0 syntax errors
+[exit 0]

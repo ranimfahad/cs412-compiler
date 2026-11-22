@@ -1,0 +1,17 @@
+lexical error (line 6, col 15): invalid character '@'
+syntax error (line 6, col 17): unexpected integer literal '2', expecting ';'
+lexical error (line 7, col 15): invalid character '#'
+=== Abstract Syntax Tree ===
+Program
+  FuncDecl void main  [line 5]
+    params: (none)
+    body: Block  [line 5]
+      VarDecl int b  [line 7]
+        init: Int 3
+      Print  [line 8]
+        Binary +
+          Var a
+          Var b
+
+Summary: 2 lexical errors, 1 syntax error
+[exit 1]

@@ -1,0 +1,26 @@
+semantic error (line 8, col 5): cannot assign a value of type float to int variable 'x'
+semantic error (line 9, col 5): cannot assign a value of type float to int variable 'i'
+semantic error (line 10, col 5): cannot assign a value of type int to bool variable 'b'
+semantic error (line 11, col 11): operator '+' cannot be applied to bool and int
+semantic error (line 12, col 11): operator '%' cannot be applied to float and int
+semantic error (line 13, col 11): operator '&&' cannot be applied to int and bool
+semantic error (line 14, col 9): operator '!' cannot be applied to int
+semantic error (line 15, col 9): operator '-' cannot be applied to bool
+semantic error (line 16, col 11): operator '==' cannot be applied to bool and int
+semantic error (line 17, col 11): operator '<' cannot be applied to bool and bool
+semantic error (line 19, col 9): condition of 'if' must be bool, but it is int
+semantic error (line 20, col 12): condition of 'while' must be bool, but it is float
+semantic error (line 21, col 17): condition of 'for' must be bool, but it is int
+semantic error (line 23, col 12): operator '+' cannot be applied to bool and int
+=== Symbol Table ===
+NAME         KIND       TYPE               SCOPE                    LEVEL  LINE  TAC NAME
+----         ----       ----               -----                    -----  ----  --------
+main         function   void()             global                   0      3     main
+i            variable   int                main                     1      4     i
+f            variable   float              main                     1      5     f
+b            variable   bool               main                     1      6     b
+x            variable   int                main                     1      8     x
+(5 symbols)
+
+Summary: 0 lexical errors, 0 syntax errors, 14 semantic errors
+[exit 1]

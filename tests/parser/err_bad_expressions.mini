@@ -1,0 +1,15 @@
+// err_bad_expressions.mini -- malformed expressions.
+// Several independent errors are all reported in one run, and the
+// correct statements between them still appear in the AST.
+
+void main() {
+    int x;
+    x = 3 + * 4;
+    x = 1;
+    x = (2 + 3;
+    x = 2;
+    x = 5 6;
+    x = 3;
+    x = ;
+    print(x);
+}

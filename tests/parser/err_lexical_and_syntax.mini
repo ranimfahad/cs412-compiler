@@ -1,0 +1,9 @@
+// err_lexical_and_syntax.mini -- lexical and syntax errors together.
+// An invalid character is reported by the lexer and skipped; the parser
+// then sees the remaining tokens.
+
+void main() {
+    int a = 5 @ 2;          // '@' skipped: the parser sees "5 2" -> syntax error
+    int b = 3 # ;           // '#' skipped: "int b = 3 ;" is valid
+    print(a + b);
+}

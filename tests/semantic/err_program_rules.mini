@@ -1,0 +1,16 @@
+// err_program_rules.mini -- whole-program rules:
+//  - global initializers must be constants
+//  - there must be a 'main' function
+
+int a = 5;
+int b = a + 1;                  // uses a variable: not a constant
+int c = 2 * 3 + 1;              // OK: a constant expression
+int d = f();                    // a call: not a constant
+
+int f() {
+    return 1;
+}
+
+void start() {                  // there is no 'main'
+    print(c);
+}

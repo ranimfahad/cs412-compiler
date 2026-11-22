@@ -1,0 +1,30 @@
+syntax error (line 6, col 5): unexpected '=', expecting identifier
+syntax error (line 8, col 1): unexpected identifier 'x'
+syntax error (line 10, col 19): unexpected ')', expecting identifier
+syntax error (line 16, col 13): unexpected ')'
+syntax error (line 19, col 20): unexpected ')'
+syntax error (line 23, col 1): unexpected '}', expecting ';'
+=== Abstract Syntax Tree ===
+Program
+  VarDecl int good1  [line 5]
+    init: Int 1
+  VarDecl float good2  [line 7]
+    init: Float 2.0
+  FuncDecl int add  [line 10]
+    params: (none)
+    body: Block  [line 10]
+      Return  [line 11]
+        Var a
+  FuncDecl void main  [line 14]
+    params: (none)
+    body: Block  [line 14]
+      VarDecl int y  [line 15]
+        init: Int 0
+  FuncDecl void after  [line 25]
+    params: (none)
+    body: Block  [line 25]
+      Print  [line 26]
+        Var good1
+
+Summary: 0 lexical errors, 6 syntax errors
+[exit 1]

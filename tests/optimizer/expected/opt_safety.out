@@ -1,0 +1,73 @@
+=== Optimization Report ===
+PASS                         BEFORE  AFTER  CHANGE   DETAILS
+----                         ------  -----  ------   -------
+loop unrolling                   25     25       0   no loop with constant bounds
+constant folding                 25     25       0   0 folded, 1 constant + 0 copies propagated, 0 branches decided
+strength reduction               25     25       0   1 operation made cheaper
+loop-invariant code motion       25     25       0   0 instructions moved out of loops
+dead code elimination            25     24      -1   1 instruction removed
+repeat until stable              24     24       0   0 more rounds: 0 folded, 0 propagated, 0 branches, 0 reduced, 0 removed
+total                            25     24      -1   
+
+=== Optimized Three-Address Code ===
+globals:
+    int g
+
+init:
+    g = 0
+    (1 instruction)
+
+function bump():
+    g = g + 1
+    return
+    (2 instructions)
+end bump
+
+function watch(n):
+    k = 0
+L1:
+    t1 = k < n
+    ifFalse t1 goto L2
+    call bump, 0
+    t2 = g << 1
+    print t2
+    k = k + 1
+    goto L1
+L2:
+    return
+    (9 instructions)
+end watch
+
+function main():
+    i = 0
+L1:
+    t1 = i < 10
+    ifFalse t1 goto L2
+    i = i + 2
+    print i
+    i = i + 1
+    goto L1
+L2:
+    param 3
+    call watch, 1
+    t2 = 10 / 0
+    print t2
+    return
+    (12 instructions)
+end main
+
+Total: 24 instructions
+
+=== Program Output ===
+2
+5
+8
+11
+2
+4
+6
+runtime error: division by zero
+(62 instructions executed)
+
+Summary: 0 lexical errors, 0 syntax errors, 0 semantic errors
+[exit 1]

@@ -1,0 +1,78 @@
+=== Abstract Syntax Tree ===
+Program
+  FuncDecl void main  [line 4]
+    params: (none)
+    body: Block  [line 4]
+      VarDecl int r  [line 5]
+      VarDecl bool b  [line 6]
+      Assign r  [line 8]
+        Binary +
+          Int 1
+          Binary *
+            Int 2
+            Int 3
+      Assign r  [line 9]
+        Binary *
+          Binary +
+            Int 1
+            Int 2
+          Int 3
+      Assign r  [line 10]
+        Binary -
+          Binary -
+            Int 10
+            Int 4
+          Int 3
+      Assign r  [line 11]
+        Binary /
+          Binary /
+            Int 100
+            Int 10
+          Int 2
+      Assign r  [line 12]
+        Binary *
+          Binary %
+            Int 7
+            Int 3
+          Int 2
+      Assign r  [line 13]
+        Binary *
+          Unary -
+            Int 2
+          Int 3
+      Assign r  [line 14]
+        Unary -
+          Unary -
+            Int 5
+      Assign b  [line 15]
+        Binary <
+          Binary +
+            Var r
+            Int 1
+          Int 10
+      Assign b  [line 16]
+        Binary ==
+          Binary <
+            Var r
+            Int 10
+          Bool true
+      Assign b  [line 17]
+        Binary &&
+          Unary !
+            Var b
+          Binary >
+            Var r
+            Int 0
+      Assign b  [line 18]
+        Binary ||
+          Var b
+          Binary &&
+            Binary ==
+              Var r
+              Int 1
+            Binary !=
+              Var r
+              Int 2
+
+Summary: 0 lexical errors, 0 syntax errors
+[exit 0]

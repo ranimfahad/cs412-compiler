@@ -1,0 +1,29 @@
+// valid_types.mini -- type rules that are allowed.
+//  - int is widened to float automatically (assignment, arithmetic,
+//    comparison, arguments, return)
+//  - bool values with == != && || !
+
+float half(float v) {
+    return v / 2;               // int 2 is widened to float
+}
+
+float to_float(int n) {
+    return n;                   // int return value widened to float
+}
+
+void main() {
+    int i = 7;
+    float f = i;                // int -> float
+    float g = i * 2.5;          // int * float is float
+    int m = i % 3;              // % needs two ints
+    bool small = i < 10;        // comparison gives bool
+    bool mixed = f >= i;        // float compared with int
+    bool same = small == mixed; // == on two bools
+    bool both = small && !same || i != 0;
+
+    f = half(i);                // int argument for a float parameter
+    g = to_float(m) + f;
+    print(g);
+    print(both);
+    print(-f);
+}

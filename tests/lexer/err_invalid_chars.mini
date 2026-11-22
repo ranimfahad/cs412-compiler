@@ -1,0 +1,12 @@
+// err_invalid_chars.mini -- characters that are not part of MiniLang.
+// Each one is reported with its line and column, and scanning continues.
+
+int x = 5 @ 3;
+float $price = 9.99;
+bool ok = a & b;
+bool ok2 = a | b;
+int y = x # 2;
+print(x ? y : 0);
+int z = ~x ^ 1;
+int s = "text";
+int t = 'c';

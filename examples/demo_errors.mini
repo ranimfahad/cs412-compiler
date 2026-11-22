@@ -1,0 +1,14 @@
+// demo_errors.mini -- sample program with syntax errors
+int square(int n) {
+    return n * n
+}
+
+void main() {
+    int i = 0;
+    while (i < 3) {
+        i = i + ;
+        print(square(i);
+        print(i);
+    }
+    float = 2.5;
+}

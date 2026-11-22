@@ -1,0 +1,112 @@
+=== Abstract Syntax Tree ===
+Program
+  FuncDecl int sum  [line 3]
+    params:
+      Param int n
+    body: Block  [line 3]
+      VarDecl int total  [line 4]
+        init: Int 0
+      VarDecl int i  [line 5]
+      For  [line 6]
+        init: Assign i  [line 6]
+          Int 1
+        cond: Binary <=
+          Var i
+          Var n
+        update: Assign i  [line 6]
+          Binary +
+            Var i
+            Int 1
+        body: Block  [line 6]
+          Assign total  [line 7]
+            Binary +
+              Var total
+              Var i
+      Return  [line 9]
+        Var total
+  FuncDecl void main  [line 12]
+    params: (none)
+    body: Block  [line 12]
+      VarDecl int x  [line 13]
+        init: Int 3
+      VarDecl int y  [line 14]
+        init: Int 0
+      If  [line 17]
+        cond: Binary >
+          Var x
+          Int 0
+        then: If  [line 18]
+          cond: Binary >
+            Var y
+            Int 0
+          then: Print  [line 19]
+            Int 1
+          else: Print  [line 21]
+            Int 2
+      If  [line 24]
+        cond: Binary ==
+          Var x
+          Int 1
+        then: Block  [line 24]
+          Print  [line 25]
+            Int 10
+        else: If  [line 26]
+          cond: Binary ==
+            Var x
+            Int 2
+          then: Block  [line 26]
+            Print  [line 27]
+              Int 20
+          else: Block  [line 28]
+            Print  [line 29]
+              Int 30
+      While  [line 33]
+        cond: Binary >
+          Var x
+          Int 0
+        body: Assign x  [line 33]
+          Binary -
+            Var x
+            Int 1
+      For  [line 34]
+        init: (none)
+        cond: (none)
+        update: (none)
+        body: Block  [line 34]
+      For  [line 35]
+        init: (none)
+        cond: Binary <
+          Var y
+          Int 3
+        update: (none)
+        body: Assign y  [line 35]
+          Binary +
+            Var y
+            Int 1
+      Block  [line 38]
+        VarDecl int inner  [line 39]
+          init: Call sum
+            args:
+              Int 4
+        Block  [line 40]
+          VarDecl float deeper  [line 41]
+            init: Float 1.5
+          Print  [line 42]
+            Var deeper
+        Print  [line 44]
+          Var inner
+      ExprStmt  [line 48]
+        Call main
+      ExprStmt  [line 49]
+        Call sum
+          args:
+            Int 10
+      Print  [line 50]
+        Call sum
+          args:
+            Call sum
+              args:
+                Int 2
+
+Summary: 0 lexical errors, 0 syntax errors
+[exit 0]

@@ -1,0 +1,20 @@
+// valid_comments.mini -- comments produce no tokens.
+
+int a; // a comment after code
+
+/* a block comment on one line */ int b;
+
+/*
+ * A block comment over several lines.
+ * It may contain * stars, / slashes, // and even "/*".
+ * Keywords like int or while inside are ignored.
+ */
+int c;
+
+int/* in the middle */d;
+
+/**/ int e; /***/ int f; /* ends with stars **/ int g;
+
+// line numbers after comments must still be correct:
+print(a);
+// comment on the last line, with no newline after it

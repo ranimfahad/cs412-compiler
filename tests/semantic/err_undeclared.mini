@@ -1,0 +1,15 @@
+// err_undeclared.mini -- names that are not declared where they are used.
+
+void main() {
+    int a = 1;
+    a = b + 1;                  // 'b' was never declared
+    c = 5;                      // assignment to an undeclared variable
+    print(missing(a));          // call to an undeclared function
+    print(late);                // used before its declaration ...
+    int late = 2;               // ... which only comes here
+    {
+        int inner = 3;
+    }
+    print(inner);               // 'inner' is out of scope after its block
+    a = (b * 2) + (b - 1);      // one error per use of 'b', no cascade
+}

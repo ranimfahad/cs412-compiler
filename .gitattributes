@@ -1,0 +1,7 @@
+# Keep text files with LF line endings on every OS. Otherwise Git on Windows
+# may check them out with CRLF, and sh fails on a CRLF tests/run_tests.sh.
+* text=auto eol=lf
+
+# This test checks that the lexer accepts Windows line endings, so it must
+# keep its CRLF line endings exactly as they are.
+tests/lexer/valid_crlf.mini -text

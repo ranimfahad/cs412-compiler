@@ -1,0 +1,6 @@
+syntax error (line 9, col 1): unexpected end of file, expecting '}'
+=== Abstract Syntax Tree ===
+(no AST: the parser could not recover before end of file)
+
+Summary: 0 lexical errors, 1 syntax error
+[exit 1]

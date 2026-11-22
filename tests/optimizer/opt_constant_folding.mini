@@ -1,0 +1,19 @@
+// opt_constant_folding.mini -- constant folding and constant propagation.
+
+int K = 10;                     // a global: its value is not assumed inside functions
+
+void main() {
+    int a = 2 * 3 + 4;          // folded: a = 10
+    int b = a * 2;              // a is known, so b = 20
+    float f = 1.5 * 2;          // (float) 2 is folded too: f = 3.0
+    bool p = a > 5 && b < 100;  // folded through the && jumps
+    if (a == 10) {              // condition known: the branch is decided
+        print(1);
+    } else {
+        print(0);
+    }
+    print(b - a);
+    print(f);
+    print(p);
+    print(K + 1);               // not folded: K is global
+}

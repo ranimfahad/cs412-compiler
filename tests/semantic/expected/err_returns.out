@@ -1,0 +1,22 @@
+semantic error (line 4, col 5): void function 'nothing' cannot return a value
+semantic error (line 8, col 5): function 'number' must return a value of type int
+semantic error (line 12, col 5): function 'wrong_type' must return int, but this returns bool
+semantic error (line 16, col 5): function 'narrowing' must return int, but this returns float
+semantic error (line 23, col 1): function 'maybe' does not return a value on every path
+=== Symbol Table ===
+NAME         KIND       TYPE               SCOPE                    LEVEL  LINE  TAC NAME
+----         ----       ----               -----                    -----  ----  --------
+nothing      function   void()             global                   0      3     nothing
+number       function   int()              global                   0      7     number
+wrong_type   function   int()              global                   0      11    wrong_type
+narrowing    function   int()              global                   0      15    narrowing
+widening     function   float()            global                   0      19    widening
+maybe        function   int(int)           global                   0      23    maybe
+both_paths   function   int(int)           global                   0      29    both_paths
+main         function   void()             global                   0      37    main
+x            parameter  int                maybe                    1      23    x
+x            parameter  int                both_paths               1      29    x
+(10 symbols)
+
+Summary: 0 lexical errors, 0 syntax errors, 5 semantic errors
+[exit 1]

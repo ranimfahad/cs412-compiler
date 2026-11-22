@@ -1,0 +1,15 @@
+// tac_expressions.mini -- expressions become sequences of temporaries.
+
+void main() {
+    int a = 2;
+    int b = 3;
+    int c;
+    c = a + b * 4;              // t1 = b * 4 ; c = a + t1
+    c = (a + b) * (a - b);      // both sides first, then the product
+    c = -a + -b;                // unary minus
+    c = a - b - 1;              // left associative: (a - b) - 1
+    c = a;                      // a plain copy
+    bool p = a < b;
+    bool q = !p;
+    print(c * 2);
+}

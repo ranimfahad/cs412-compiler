@@ -1,0 +1,41 @@
+=== Three-Address Code ===
+function check(v):
+    print v
+    t1 = v > 0
+    return t1
+    (3 instructions)
+end check
+
+function main():
+    x = 5
+    t1 = x > 0
+    ifFalse t1 goto L1
+    param x
+    t1 = call check, 1
+L1:
+    ok = t1
+    t2 = x < 0
+    if t2 goto L2
+    param x
+    t2 = call check, 1
+L2:
+    ok = t2
+    t4 = ok
+    ifFalse t4 goto L4
+    t4 = x != 3
+L4:
+    t3 = t4
+    if t3 goto L3
+    t3 = !ok
+L3:
+    ifFalse t3 goto L5
+    print x
+L5:
+    return
+    (20 instructions)
+end main
+
+Total: 23 instructions
+
+Summary: 0 lexical errors, 0 syntax errors, 0 semantic errors
+[exit 0]

@@ -1,0 +1,16 @@
+semantic error (line 6, col 11): initializer of global variable 'b' must be a constant
+semantic error (line 8, col 9): initializer of global variable 'd' must be a constant
+semantic error: the program has no 'main' function
+=== Symbol Table ===
+NAME         KIND       TYPE               SCOPE                    LEVEL  LINE  TAC NAME
+----         ----       ----               -----                    -----  ----  --------
+a            variable   int                global                   0      5     a
+b            variable   int                global                   0      6     b
+c            variable   int                global                   0      7     c
+d            variable   int                global                   0      8     d
+f            function   int()              global                   0      10    f
+start        function   void()             global                   0      14    start
+(6 symbols)
+
+Summary: 0 lexical errors, 0 syntax errors, 3 semantic errors
+[exit 1]

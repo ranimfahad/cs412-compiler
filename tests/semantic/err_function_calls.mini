@@ -1,0 +1,28 @@
+// err_function_calls.mini -- wrong calls: argument count and types,
+// and mixing up variables and functions.
+
+int add(int a, int b) {
+    return a + b;
+}
+
+void greet() {
+    print(1);
+}
+
+void main() {
+    int n = 0;
+    float f = 1.5;
+
+    n = add(1);                 // too few arguments
+    n = add(1, 2, 3);           // too many arguments
+    n = add(f, 2);              // argument 1: float where int is expected
+    n = add(1, true);           // argument 2: bool where int is expected
+    greet(5);                   // greet takes no arguments
+
+    n = n(2);                   // n is a variable, not a function
+    n = add;                    // add is a function, not a variable
+    add = 3;                    // cannot assign to a function
+
+    n = greet() + 1;            // a void function has no value
+    print(greet());             // cannot print a void value
+}

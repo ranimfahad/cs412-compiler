@@ -1,0 +1,27 @@
+=== Three-Address Code ===
+function main():
+    a = 2
+    b = 3
+    t1 = b * 4
+    c = a + t1
+    t2 = a + b
+    t3 = a - b
+    c = t2 * t3
+    t4 = -a
+    t5 = -b
+    c = t4 + t5
+    t6 = a - b
+    c = t6 - 1
+    c = a
+    p = a < b
+    q = !p
+    t7 = c * 2
+    print t7
+    return
+    (18 instructions)
+end main
+
+Total: 18 instructions
+
+Summary: 0 lexical errors, 0 syntax errors, 0 semantic errors
+[exit 0]

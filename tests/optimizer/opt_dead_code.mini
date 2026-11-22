@@ -1,0 +1,23 @@
+// opt_dead_code.mini -- dead code elimination.
+
+int first(int a, int b) {       // b is never used
+    return a;
+    print(b);                   // unreachable: after return
+}
+
+void main() {
+    int x = 5;
+    int unused = x * 2;         // never read: removed
+    int y = 1;                  // dead store: overwritten before it is read
+    y = 2;
+    print(y);
+    if (false) {                // never true: the whole if disappears
+        print(100);
+    }
+    while (false) {             // never runs: the loop disappears
+        print(200);
+    }
+    print(first(x, 7));
+    return;
+    print(300);                 // unreachable: after return
+}

@@ -1,0 +1,19 @@
+// valid_precedence.mini -- operator precedence and associativity.
+// The AST shows how each expression is grouped.
+
+void main() {
+    int r;
+    bool b;
+
+    r = 1 + 2 * 3;          // * before +          : 1 + (2 * 3)
+    r = (1 + 2) * 3;        // parentheses first   : (1 + 2) * 3
+    r = 10 - 4 - 3;         // left associative    : (10 - 4) - 3
+    r = 100 / 10 / 2;       // left associative    : (100 / 10) / 2
+    r = 7 % 3 * 2;          // same level, left    : (7 % 3) * 2
+    r = -2 * 3;             // unary minus first   : (-2) * 3
+    r = - -5;               // nested unary        : -(-5)
+    b = r + 1 < 10;         // arithmetic first    : (r + 1) < 10
+    b = r < 10 == true;     // relational before ==: (r < 10) == true
+    b = !b && r > 0;        // ! binds tightest    : (!b) && (r > 0)
+    b = b || r == 1 && r != 2;  // && before ||    : b || ((r == 1) && (r != 2))
+}

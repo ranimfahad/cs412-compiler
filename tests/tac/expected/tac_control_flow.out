@@ -1,0 +1,45 @@
+=== Three-Address Code ===
+function main():
+    i = 0
+    sum = 0
+    t1 = i == 0
+    ifFalse t1 goto L1
+    sum = 1
+L1:
+    t2 = sum > 0
+    ifFalse t2 goto L2
+    print 1
+    goto L3
+L2:
+    print 0
+L3:
+L4:
+    t3 = i < 3
+    ifFalse t3 goto L5
+    i = i + 1
+    goto L4
+L5:
+    i = 0
+L6:
+    t4 = i < 4
+    ifFalse t4 goto L7
+    t5 = i % 2
+    t6 = t5 == 0
+    ifFalse t6 goto L8
+    sum = sum + i
+L8:
+    i = i + 1
+    goto L6
+L7:
+L9:
+    return
+    goto L9
+L10:
+    return
+    (26 instructions)
+end main
+
+Total: 26 instructions
+
+Summary: 0 lexical errors, 0 syntax errors, 0 semantic errors
+[exit 0]

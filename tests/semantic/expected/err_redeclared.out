@@ -1,0 +1,26 @@
+semantic error (line 4, col 1): 'total' is already declared in this scope (at line 3)
+semantic error (line 7, col 1): 'twice' is already declared in this scope (at line 6)
+semantic error (line 10, col 1): 'value' is already declared in this scope (at line 9)
+semantic error (line 12, col 16): 'a' is already declared in this scope (at line 12)
+semantic error (line 17, col 5): 'w' is already declared in this scope (at line 16)
+semantic error (line 23, col 5): 'x' is already declared in this scope (at line 22)
+semantic error (line 26, col 9): 'x' is already declared in this scope (at line 25)
+=== Symbol Table ===
+NAME         KIND       TYPE               SCOPE                    LEVEL  LINE  TAC NAME
+----         ----       ----               -----                    -----  ----  --------
+total        variable   int                global                   0      3     total
+twice        function   int(int)           global                   0      6     twice
+value        variable   int                global                   0      9     value
+sum          function   int(int, int)      global                   0      12    sum
+area         function   int(int, int)      global                   0      16    area
+main         function   void()             global                   0      21    main
+a            parameter  int                twice                    1      6     a
+a            parameter  int                sum                      1      12    a
+w            parameter  int                area                     1      16    w
+h            parameter  int                area                     1      16    h
+x            variable   int                main                     1      22    x
+x            variable   int                main/block@24            2      25    x_1
+(12 symbols)
+
+Summary: 0 lexical errors, 0 syntax errors, 7 semantic errors
+[exit 1]

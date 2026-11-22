@@ -1,0 +1,52 @@
+=== Optimization Report ===
+PASS                         BEFORE  AFTER  CHANGE   DETAILS
+----                         ------  -----  ------   -------
+loop unrolling                   25     25       0   no loop with constant bounds
+constant folding                 25     25       0   0 folded, 0 constants + 0 copies propagated, 0 branches decided
+strength reduction               25     25       0   8 operations made cheaper
+loop-invariant code motion       25     25       0   0 instructions moved out of loops
+dead code elimination            25     25       0   0 instructions removed
+repeat until stable              25     19      -6   2 more rounds: 0 folded, 6 propagated, 0 branches, 1 reduced, 6 removed
+total                            25     19      -6   
+
+=== Optimized Three-Address Code ===
+function scale(x):
+    a = x << 3
+    b = x << 2
+    h = x * 6
+    t1 = a + b
+    t2 = t1 + x
+    t3 = t2 + x
+    t5 = t3 + x
+    t6 = t5 + h
+    return t6
+    (9 instructions)
+end scale
+
+function fscale(y):
+    t1 = y + y
+    t3 = t1 + y
+    return t3
+    (3 instructions)
+end fscale
+
+function main():
+    param 3
+    t1 = call scale, 1
+    print t1
+    param 1.5
+    t2 = call fscale, 1
+    print t2
+    return
+    (7 instructions)
+end main
+
+Total: 19 instructions
+
+=== Program Output ===
+63
+4.5
+(19 instructions executed)
+
+Summary: 0 lexical errors, 0 syntax errors, 0 semantic errors
+[exit 0]

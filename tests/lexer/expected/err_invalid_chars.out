@@ -1,0 +1,72 @@
+=== Tokens ===
+LINE   COL   TOKEN       LEXEME
+----   ---   -----       ------
+4      1     KW_INT      int
+4      5     IDENT       x
+4      7     OP_ASSIGN   =
+4      9     INT_LIT     5
+lexical error (line 4, col 11): invalid character '@'
+4      13    INT_LIT     3
+4      14    SEMI        ;
+5      1     KW_FLOAT    float
+lexical error (line 5, col 7): invalid character '$'
+5      8     IDENT       price
+5      14    OP_ASSIGN   =
+5      16    FLOAT_LIT   9.99
+5      20    SEMI        ;
+6      1     KW_BOOL     bool
+6      6     IDENT       ok
+6      9     OP_ASSIGN   =
+6      11    IDENT       a
+lexical error (line 6, col 13): invalid character '&' (did you mean '&&'?)
+6      15    IDENT       b
+6      16    SEMI        ;
+7      1     KW_BOOL     bool
+7      6     IDENT       ok2
+7      10    OP_ASSIGN   =
+7      12    IDENT       a
+lexical error (line 7, col 14): invalid character '|' (did you mean '||'?)
+7      16    IDENT       b
+7      17    SEMI        ;
+8      1     KW_INT      int
+8      5     IDENT       y
+8      7     OP_ASSIGN   =
+8      9     IDENT       x
+lexical error (line 8, col 11): invalid character '#'
+8      13    INT_LIT     2
+8      14    SEMI        ;
+9      1     KW_PRINT    print
+9      6     LPAREN      (
+9      7     IDENT       x
+lexical error (line 9, col 9): invalid character '?'
+9      11    IDENT       y
+lexical error (line 9, col 13): invalid character ':'
+9      15    INT_LIT     0
+9      16    RPAREN      )
+9      17    SEMI        ;
+10     1     KW_INT      int
+10     5     IDENT       z
+10     7     OP_ASSIGN   =
+lexical error (line 10, col 9): invalid character '~'
+10     10    IDENT       x
+lexical error (line 10, col 12): invalid character '^'
+10     14    INT_LIT     1
+10     15    SEMI        ;
+11     1     KW_INT      int
+11     5     IDENT       s
+11     7     OP_ASSIGN   =
+lexical error (line 11, col 9): invalid character '"'
+11     10    IDENT       text
+lexical error (line 11, col 14): invalid character '"'
+11     15    SEMI        ;
+12     1     KW_INT      int
+12     5     IDENT       t
+12     7     OP_ASSIGN   =
+lexical error (line 12, col 9): invalid character '''
+12     10    IDENT       c
+lexical error (line 12, col 11): invalid character '''
+12     12    SEMI        ;
+(52 tokens)
+
+Summary: 13 lexical errors
+[exit 1]

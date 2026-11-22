@@ -1,0 +1,22 @@
+// tac_scopes_globals.mini -- globals are initialized in "init", and shadowed
+// variables get unique names in the code (x, x_1, ...).
+
+int count = 10;
+float ratio = 1.0 / 4;          // constant expression
+bool flag;                      // no initializer: starts as false
+
+void main() {
+    int x = 1;
+    int count = 2;              // shadows the global: becomes count_1
+    {
+        int x = 3;              // becomes x_1
+        print(x);
+    }
+    {
+        int x = 4;              // another block: becomes x_2
+        print(x + count);
+    }
+    print(x);
+    print(ratio);
+    print(flag);
+}

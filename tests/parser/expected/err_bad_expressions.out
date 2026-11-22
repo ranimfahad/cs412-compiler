@@ -1,0 +1,21 @@
+syntax error (line 7, col 13): unexpected '*'
+syntax error (line 9, col 15): unexpected ';', expecting ')'
+syntax error (line 11, col 11): unexpected integer literal '6', expecting ';'
+syntax error (line 13, col 9): unexpected ';'
+=== Abstract Syntax Tree ===
+Program
+  FuncDecl void main  [line 5]
+    params: (none)
+    body: Block  [line 5]
+      VarDecl int x  [line 6]
+      Assign x  [line 8]
+        Int 1
+      Assign x  [line 10]
+        Int 2
+      Assign x  [line 12]
+        Int 3
+      Print  [line 14]
+        Var x
+
+Summary: 0 lexical errors, 4 syntax errors
+[exit 1]

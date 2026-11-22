@@ -1,0 +1,68 @@
+=== Optimization Report ===
+PASS                         BEFORE  AFTER  CHANGE   DETAILS
+----                         ------  -----  ------   -------
+loop unrolling                   32     47     +15   2 loops fully unrolled (8 iterations), 1 partially
+constant folding                 47     47       0   12 folded, 21 constants + 0 copies propagated, 0 branches decided
+strength reduction               47     47       0   4 operations made cheaper
+loop-invariant code motion       47     47       0   0 instructions moved out of loops
+dead code elimination            47     34     -13   13 instructions removed
+repeat until stable              34     34       0   0 more rounds: 0 folded, 0 propagated, 0 branches, 0 reduced, 0 removed
+total                            32     34      +2   
+
+=== Optimized Three-Address Code ===
+function main():
+    sum = 6
+    print 6
+    total = 0
+    i = 1
+L3:
+    t2 = i <= 32
+    ifFalse t2 goto L4
+    t3 = i << 1
+    total = total + t3
+    i = i + 1
+    t3 = i << 1
+    total = total + t3
+    i = i + 1
+    t3 = i << 1
+    total = total + t3
+    i = i + 1
+    t3 = i << 1
+    total = total + t3
+    i = i + 1
+    goto L3
+L4:
+    print total
+    print 10
+    print 7
+    print 4
+    print 1
+    i = -2
+    n = 5
+    k = 0
+L7:
+    t5 = k < n
+    ifFalse t5 goto L8
+    sum = sum + k
+    k = k + 1
+    goto L7
+L8:
+    print sum
+    return
+    (34 instructions)
+end main
+
+Total: 34 instructions
+
+=== Program Output ===
+6
+1056
+10
+7
+4
+1
+16
+(163 instructions executed)
+
+Summary: 0 lexical errors, 0 syntax errors, 0 semantic errors
+[exit 0]

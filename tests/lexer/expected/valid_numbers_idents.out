@@ -1,0 +1,33 @@
+=== Tokens ===
+LINE   COL   TOKEN       LEXEME
+----   ---   -----       ------
+4      1     INT_LIT     0
+4      3     INT_LIT     7
+4      5     INT_LIT     42
+4      8     INT_LIT     2147483647
+7      1     FLOAT_LIT   3.14
+7      6     FLOAT_LIT   0.5
+7      10    FLOAT_LIT   10.0
+7      15    FLOAT_LIT   1e5
+7      19    FLOAT_LIT   2E10
+7      24    FLOAT_LIT   6.02e23
+7      32    FLOAT_LIT   1.5e-3
+7      39    FLOAT_LIT   9.0E+2
+10     1     IDENT       x
+10     3     IDENT       _tmp
+10     8     IDENT       count2
+10     15    IDENT       camelCase
+10     25    IDENT       snake_case
+10     36    IDENT       X1_y2
+11     1     IDENT       integer
+11     9     IDENT       iffy
+11     14    IDENT       format
+11     21    IDENT       whiley
+11     28    IDENT       returned
+11     37    IDENT       printer
+11     45    IDENT       trueValue
+11     55    IDENT       false_
+(26 tokens)
+
+Summary: 0 lexical errors
+[exit 0]

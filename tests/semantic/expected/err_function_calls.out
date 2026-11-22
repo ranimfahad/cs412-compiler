@@ -1,0 +1,24 @@
+semantic error (line 16, col 9): function 'add' expects 2 arguments, but 1 was given
+semantic error (line 17, col 9): function 'add' expects 2 arguments, but 3 were given
+semantic error (line 18, col 13): argument 1 of 'add' must be int, but it is float
+semantic error (line 19, col 16): argument 2 of 'add' must be int, but it is bool
+semantic error (line 20, col 5): function 'greet' expects 0 arguments, but 1 was given
+semantic error (line 22, col 9): 'n' is a variable, not a function
+semantic error (line 23, col 9): 'add' is a function, not a variable (missing parentheses?)
+semantic error (line 24, col 5): cannot assign to function 'add'
+semantic error (line 26, col 17): operator '+' cannot be applied to void and int
+semantic error (line 27, col 5): cannot print a void value
+=== Symbol Table ===
+NAME         KIND       TYPE               SCOPE                    LEVEL  LINE  TAC NAME
+----         ----       ----               -----                    -----  ----  --------
+add          function   int(int, int)      global                   0      4     add
+greet        function   void()             global                   0      8     greet
+main         function   void()             global                   0      12    main
+a            parameter  int                add                      1      4     a
+b            parameter  int                add                      1      4     b
+n            variable   int                main                     1      13    n
+f            variable   float              main                     1      14    f
+(7 symbols)
+
+Summary: 0 lexical errors, 0 syntax errors, 10 semantic errors
+[exit 1]

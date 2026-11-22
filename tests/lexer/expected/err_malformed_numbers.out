@@ -1,0 +1,44 @@
+=== Tokens ===
+LINE   COL   TOKEN       LEXEME
+----   ---   -----       ------
+3      1     KW_INT      int
+3      5     IDENT       a
+3      7     OP_ASSIGN   =
+lexical error (line 3, col 9): malformed number '12abc'
+3      14    SEMI        ;
+4      1     KW_FLOAT    float
+4      7     IDENT       b
+4      9     OP_ASSIGN   =
+lexical error (line 4, col 11): malformed float '3.' (expected digits after '.')
+4      13    SEMI        ;
+5      1     KW_FLOAT    float
+5      7     IDENT       c
+5      9     OP_ASSIGN   =
+lexical error (line 5, col 11): malformed number '1.5f'
+5      15    SEMI        ;
+6      1     KW_INT      int
+6      5     IDENT       d
+6      7     OP_ASSIGN   =
+lexical error (line 6, col 9): integer literal '99999999999' is too large (max 2147483647)
+6      9     INT_LIT     99999999999
+6      20    SEMI        ;
+7      1     KW_INT      int
+7      5     IDENT       e
+7      7     OP_ASSIGN   =
+lexical error (line 7, col 9): integer literal '2147483648' is too large (max 2147483647)
+7      9     INT_LIT     2147483648
+7      19    SEMI        ;
+8      1     KW_FLOAT    float
+8      7     IDENT       f
+8      9     OP_ASSIGN   =
+lexical error (line 8, col 11): malformed number '1e'
+8      13    SEMI        ;
+9      1     KW_INT      int
+9      5     IDENT       g
+9      7     OP_ASSIGN   =
+9      9     INT_LIT     42
+9      11    SEMI        ;
+(31 tokens)
+
+Summary: 6 lexical errors
+[exit 1]

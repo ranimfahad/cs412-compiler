@@ -1,0 +1,59 @@
+// run_programs.mini -- checks the TAC interpreter itself (--run).
+// The expected values were worked out by hand; see the comments.
+
+int calls = 0;                      // changed by a function: globals work
+
+int fact(int n) {
+    calls = calls + 1;
+    if (n <= 1) {
+        return 1;
+    }
+    return n * fact(n - 1);
+}
+
+int fib(int n) {
+    int a = 0;
+    int b = 1;
+    int i;
+    for (i = 0; i < n; i = i + 1) {
+        int next = a + b;
+        a = b;
+        b = next;
+    }
+    return a;
+}
+
+bool noisy(bool value) {
+    print(value);                   // shows whether it was called
+    return value;
+}
+
+void main() {
+    print(fact(5));                 // 120
+    print(calls);                   // 5 calls of fact
+    print(fib(10));                 // 55
+    print(7 / 2);                   // 3   (int division)
+    print(-7 / 2);                  // -3  (rounds toward zero, as in C)
+    print(-7 % 3);                  // -1
+    print(7 / 2.0);                 // 3.5 (7 is widened to float)
+    print(1.0 / 4);                 // 0.25
+    bool r = false && noisy(true);  // noisy is NOT called
+    print(r);                       // false
+    r = true || noisy(false);       // noisy is NOT called
+    print(r);                       // true
+    r = true && noisy(true);        // prints true, then r is true
+    print(r);                       // true
+    int x = 1;
+    {
+        int x = 2;                  // shadows x
+        print(x);                   // 2
+    }
+    print(x);                       // 1
+    int count = 0;
+    while (count < 10) {
+        if (count % 3 == 0) {
+            print(count);           // 0, 3, 6, 9
+        }
+        count = count + 1;
+    }
+}

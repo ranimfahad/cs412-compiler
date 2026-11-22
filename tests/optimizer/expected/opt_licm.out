@@ -1,0 +1,77 @@
+=== Optimization Report ===
+PASS                         BEFORE  AFTER  CHANGE   DETAILS
+----                         ------  -----  ------   -------
+loop unrolling                   38     38       0   no loop with constant bounds
+constant folding                 38     38       0   0 folded, 0 constants + 0 copies propagated, 0 branches decided
+strength reduction               38     38       0   1 operation made cheaper
+loop-invariant code motion       38     38       0   5 instructions moved out of loops
+dead code elimination            38     38       0   0 instructions removed
+repeat until stable              38     38       0   0 more rounds: 0 folded, 0 propagated, 0 branches, 0 reduced, 0 removed
+total                            38     38       0   
+
+=== Optimized Three-Address Code ===
+function sum_scaled(n, k):
+    total = 0
+    i = 0
+    t2 = k * 3
+    t4 = n / 2
+L1:
+    t1 = i < n
+    ifFalse t1 goto L2
+    t3 = total + t2
+    total = t3 + t4
+    t5 = 100 / k
+    total = total + t5
+    i = i + 1
+    goto L1
+L2:
+    return total
+    (13 instructions)
+end sum_scaled
+
+function nested(n, m):
+    s = 0
+    i = 0
+    t3 = m * n
+L1:
+    t1 = i < n
+    ifFalse t1 goto L2
+    j = 0
+    t5 = i << 1
+L3:
+    t2 = j < m
+    ifFalse t2 goto L4
+    t4 = s + t3
+    s = t4 + t5
+    j = j + 1
+    goto L3
+L4:
+    i = i + 1
+    goto L1
+L2:
+    return s
+    (16 instructions)
+end nested
+
+function main():
+    param 10
+    param 4
+    t1 = call sum_scaled, 2
+    print t1
+    param 3
+    param 4
+    t2 = call nested, 2
+    print t2
+    return
+    (9 instructions)
+end main
+
+Total: 38 instructions
+
+=== Program Output ===
+420
+168
+(198 instructions executed)
+
+Summary: 0 lexical errors, 0 syntax errors, 0 semantic errors
+[exit 0]

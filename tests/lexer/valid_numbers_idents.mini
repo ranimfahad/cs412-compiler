@@ -1,0 +1,11 @@
+// valid_numbers_idents.mini -- literals and identifiers.
+
+// Integers
+0 7 42 2147483647
+
+// Floats: decimal point, exponent, both
+3.14 0.5 10.0 1e5 2E10 6.02e23 1.5e-3 9.0E+2
+
+// Identifiers, including ones that start with a keyword
+x _tmp count2 camelCase snake_case X1_y2
+integer iffy format whiley returned printer trueValue false_

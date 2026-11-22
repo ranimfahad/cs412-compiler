@@ -1,0 +1,42 @@
+=== Optimization Report ===
+PASS                         BEFORE  AFTER  CHANGE   DETAILS
+----                         ------  -----  ------   -------
+loop unrolling                   22     22       0   no loop with constant bounds
+constant folding                 22     21      -1   7 folded, 6 constants + 0 copies propagated, 1 branch decided
+strength reduction               21     21       0   0 operations made cheaper
+loop-invariant code motion       21     21       0   0 instructions moved out of loops
+dead code elimination            21     18      -3   3 instructions removed
+repeat until stable              18      8     -10   2 more rounds: 2 folded, 8 propagated, 1 branch, 0 reduced, 9 removed
+total                            22      8     -14   
+
+=== Optimized Three-Address Code ===
+globals:
+    int K
+
+init:
+    K = 10
+    (1 instruction)
+
+function main():
+    print 1
+    print 10
+    print 3.0
+    print true
+    t6 = K + 1
+    print t6
+    return
+    (7 instructions)
+end main
+
+Total: 8 instructions
+
+=== Program Output ===
+1
+10
+3.0
+true
+11
+(8 instructions executed)
+
+Summary: 0 lexical errors, 0 syntax errors, 0 semantic errors
+[exit 0]

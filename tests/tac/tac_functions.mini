@@ -1,0 +1,24 @@
+// tac_functions.mini -- parameters, calls and returns.
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int fact(int n) {
+    if (n <= 1) {
+        return 1;
+    }
+    return n * fact(n - 1);
+}
+
+void show(int v) {
+    print(v);                   // no return: one is added at the end
+}
+
+void main() {
+    int x;
+    x = add(1, 2);
+    x = add(add(1, 2), fact(3));    // arguments are computed before 'param'
+    show(x);                        // void call used as a statement
+    add(x, x);                      // result not used: no temporary
+}

@@ -1,0 +1,25 @@
+=== Tokens ===
+LINE   COL   TOKEN       LEXEME
+----   ---   -----       ------
+1      1     KW_INT      int
+1      5     IDENT       x
+1      7     OP_ASSIGN   =
+1      9     INT_LIT     1
+1      10    SEMI        ;
+2      1     KW_IF       if
+2      4     LPAREN      (
+2      5     IDENT       x
+2      7     OP_GE       >=
+2      10    INT_LIT     1
+2      11    RPAREN      )
+2      13    LBRACE      {
+3      5     KW_PRINT    print
+3      10    LPAREN      (
+3      11    IDENT       x
+3      12    RPAREN      )
+3      13    SEMI        ;
+4      1     RBRACE      }
+(18 tokens)
+
+Summary: 0 lexical errors
+[exit 0]

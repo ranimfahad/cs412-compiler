@@ -1,0 +1,18 @@
+semantic error (line 5, col 9): undeclared variable 'b'
+semantic error (line 6, col 5): undeclared variable 'c'
+semantic error (line 7, col 11): undeclared function 'missing'
+semantic error (line 8, col 11): undeclared variable 'late'
+semantic error (line 13, col 11): undeclared variable 'inner'
+semantic error (line 14, col 10): undeclared variable 'b'
+semantic error (line 14, col 20): undeclared variable 'b'
+=== Symbol Table ===
+NAME         KIND       TYPE               SCOPE                    LEVEL  LINE  TAC NAME
+----         ----       ----               -----                    -----  ----  --------
+main         function   void()             global                   0      3     main
+a            variable   int                main                     1      4     a
+late         variable   int                main                     1      9     late
+inner        variable   int                main/block@10            2      11    inner
+(4 symbols)
+
+Summary: 0 lexical errors, 0 syntax errors, 7 semantic errors
+[exit 1]

@@ -1,0 +1,33 @@
+=== Tokens ===
+LINE   COL   TOKEN       LEXEME
+----   ---   -----       ------
+3      1     KW_INT      int
+3      5     IDENT       a
+3      6     SEMI        ;
+5      35    KW_INT      int
+5      39    IDENT       b
+5      40    SEMI        ;
+12     1     KW_INT      int
+12     5     IDENT       c
+12     6     SEMI        ;
+14     1     KW_INT      int
+14     23    IDENT       d
+14     24    SEMI        ;
+16     6     KW_INT      int
+16     10    IDENT       e
+16     11    SEMI        ;
+16     19    KW_INT      int
+16     23    IDENT       f
+16     24    SEMI        ;
+16     49    KW_INT      int
+16     53    IDENT       g
+16     54    SEMI        ;
+19     1     KW_PRINT    print
+19     6     LPAREN      (
+19     7     IDENT       a
+19     8     RPAREN      )
+19     9     SEMI        ;
+(26 tokens)
+
+Summary: 0 lexical errors
+[exit 0]

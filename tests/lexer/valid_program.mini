@@ -1,0 +1,36 @@
+// valid_program.mini -- a complete MiniLang program.
+// Uses functions, parameters, loops, if/else and print.
+
+/* Global variables */
+int limit = 5;
+float scale = 2.5;
+
+/* Recursive factorial */
+int fact(int n) {
+    if (n <= 1) {
+        return 1;
+    }
+    return n * fact(n - 1);
+}
+
+float average(int a, int b) {
+    return (a + b) / 2.0;
+}
+
+void main() {
+    int i;
+    bool done = false;
+
+    for (i = 0; i < limit; i = i + 1) {
+        print(fact(i));
+    }
+
+    while (!done && i >= 0) {
+        i = i - 1;
+        if (i % 2 == 0 || i == 3) {
+            print(average(i, 10) * scale);
+        } else {
+            done = i != 1;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+// demo_semantic.mini -- sample program with semantic errors
+int square(int n) {
+    return n * n;
+}
+
+void main() {
+    int i = 0;
+    float avg = 2.5;
+    bool done = false;
+
+    i = avg;                    // float -> int not allowed
+    done = i + 1;               // int -> bool
+    total = square(i);          // undeclared variable
+    i = square(i, 2);           // wrong argument count
+    if (i) { print(i); }        // condition must be bool
+    int i = 5;                  // redeclared in the same scope
+}

@@ -1,0 +1,30 @@
+// opt_licm.mini -- loop-invariant code motion.
+// The loop bounds are parameters, so the loops cannot be unrolled.
+
+int sum_scaled(int n, int k) {
+    int total = 0;
+    int i;
+    for (i = 0; i < n; i = i + 1) {
+        total = total + k * 3 + n / 2;  // k * 3 and n / 2 move out
+        total = total + 100 / k;        // stays: k might be 0, and moving the
+                                        // division would fail even if n is 0
+    }
+    return total;
+}
+
+int nested(int n, int m) {
+    int s = 0;
+    int i;
+    int j;
+    for (i = 0; i < n; i = i + 1) {
+        for (j = 0; j < m; j = j + 1) {
+            s = s + m * n + i * 2;      // m * n moves out of BOTH loops,
+        }                               // i * 2 out of the inner loop only
+    }
+    return s;
+}
+
+void main() {
+    print(sum_scaled(10, 4));
+    print(nested(3, 4));
+}

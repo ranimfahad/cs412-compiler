@@ -1,0 +1,11 @@
+// err_missing_semicolon.mini -- missing ';' and a missing ')'.
+// The parser reports each error, skips to the next ';', and continues.
+
+void main() {
+    int a = 1
+    int b = 2;
+    a = a + 1;
+    print(a;
+    b = b * 2;
+    print(b);
+}

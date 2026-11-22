@@ -1,0 +1,20 @@
+syntax error (line 6, col 5): unexpected 'int', expecting ';'
+syntax error (line 8, col 12): unexpected ';', expecting ')'
+=== Abstract Syntax Tree ===
+Program
+  FuncDecl void main  [line 4]
+    params: (none)
+    body: Block  [line 4]
+      Assign a  [line 7]
+        Binary +
+          Var a
+          Int 1
+      Assign b  [line 9]
+        Binary *
+          Var b
+          Int 2
+      Print  [line 10]
+        Var b
+
+Summary: 0 lexical errors, 2 syntax errors
+[exit 1]

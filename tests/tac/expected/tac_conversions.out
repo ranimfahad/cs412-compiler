@@ -1,0 +1,38 @@
+=== Three-Address Code ===
+function scale(v):
+    t1 = (float) 2
+    t2 = v * t1
+    return t2
+    (3 instructions)
+end scale
+
+function from_int(n):
+    t1 = (float) n
+    return t1
+    (2 instructions)
+end from_int
+
+function main():
+    i = 3
+    f = (float) i
+    t1 = (float) i
+    f = t1 + 0.5
+    t2 = (float) i
+    b = t2 < f
+    t3 = (float) i
+    param t3
+    f = call scale, 1
+    param i
+    t4 = call from_int, 1
+    t5 = (float) i
+    f = t4 + t5
+    print f
+    print b
+    return
+    (16 instructions)
+end main
+
+Total: 21 instructions
+
+Summary: 0 lexical errors, 0 syntax errors, 0 semantic errors
+[exit 0]

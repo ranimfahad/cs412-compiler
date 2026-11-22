@@ -1,0 +1,51 @@
+=== Three-Address Code ===
+function add(a, b):
+    t1 = a + b
+    return t1
+    (2 instructions)
+end add
+
+function fact(n):
+    t1 = n <= 1
+    ifFalse t1 goto L1
+    return 1
+L1:
+    t2 = n - 1
+    param t2
+    t3 = call fact, 1
+    t4 = n * t3
+    return t4
+    (8 instructions)
+end fact
+
+function show(v):
+    print v
+    return
+    (2 instructions)
+end show
+
+function main():
+    param 1
+    param 2
+    x = call add, 2
+    param 1
+    param 2
+    t1 = call add, 2
+    param 3
+    t2 = call fact, 1
+    param t1
+    param t2
+    x = call add, 2
+    param x
+    call show, 1
+    param x
+    param x
+    call add, 2
+    return
+    (17 instructions)
+end main
+
+Total: 29 instructions
+
+Summary: 0 lexical errors, 0 syntax errors, 0 semantic errors
+[exit 0]

@@ -1,0 +1,32 @@
+=== Three-Address Code ===
+globals:
+    int count
+    float ratio
+    bool flag
+
+init:
+    count = 10
+    t1 = (float) 4
+    ratio = 1.0 / t1
+    flag = false
+    (4 instructions)
+
+function main():
+    x = 1
+    count_1 = 2
+    x_1 = 3
+    print x_1
+    x_2 = 4
+    t1 = x_2 + count_1
+    print t1
+    print x
+    print ratio
+    print flag
+    return
+    (11 instructions)
+end main
+
+Total: 15 instructions
+
+Summary: 0 lexical errors, 0 syntax errors, 0 semantic errors
+[exit 0]

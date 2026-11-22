@@ -1,0 +1,4 @@
+build/
+minilang
+minilang.exe
+tests/*/actual/

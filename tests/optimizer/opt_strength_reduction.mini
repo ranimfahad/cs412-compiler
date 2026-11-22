@@ -1,0 +1,22 @@
+// opt_strength_reduction.mini -- replacing operations by cheaper ones.
+// x is a parameter, so its value is unknown and nothing can be folded.
+
+int scale(int x) {
+    int a = x * 8;              // x << 3
+    int b = 4 * x;              // x << 2
+    int c = x * 1;              // x
+    int d = x + 0;              // x
+    int e = x * 0;              // 0
+    int g = x / 1;              // x
+    int h = x * 6;              // not a power of two: unchanged
+    return a + b + c + d + e + g + h;
+}
+
+float fscale(float y) {
+    return y * 2.0 + y * 1.0;   // y + y, and y
+}
+
+void main() {
+    print(scale(3));
+    print(fscale(1.5));
+}

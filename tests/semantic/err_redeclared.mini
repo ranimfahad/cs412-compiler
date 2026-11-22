@@ -1,0 +1,28 @@
+// err_redeclared.mini -- the same name declared twice in one scope.
+
+int total;
+float total;                    // global variable declared twice
+
+int twice(int a) { return a; }
+int twice(int b) { return b; }  // function declared twice
+
+int value;
+void value() { }                // a function with a global variable's name
+
+int sum(int a, int a) {         // two parameters with the same name
+    return a;
+}
+
+int area(int w, int h) {
+    int w = 3;                  // a local with a parameter's name
+    return w * h;
+}
+
+void main() {
+    int x = 1;
+    int x = 2;                  // local declared twice
+    {
+        int x = 3;              // OK: a new scope, this shadows main's x
+        int x = 4;              // but not twice in the same block
+    }
+}

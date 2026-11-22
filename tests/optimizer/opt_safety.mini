@@ -1,0 +1,34 @@
+// opt_safety.mini -- cases the optimizer must NOT change, because the
+// result would be wrong.
+
+int g = 0;
+
+void bump() {
+    g = g + 1;
+}
+
+// g * 2 looks invariant, but bump() changes g: it must stay in the loop.
+void watch(int n) {
+    int k = 0;
+    while (k < n) {
+        bump();
+        print(g * 2);
+        k = k + 1;
+    }
+}
+
+void main() {
+    int i;
+
+    // The body changes i: the trip count is not known, so no unrolling.
+    for (i = 0; i < 10; i = i + 1) {
+        i = i + 2;
+        print(i);
+    }
+
+    watch(3);
+
+    // Not folded: integer division by zero must fail when the program runs.
+    int zero = 0;
+    print(10 / zero);
+}

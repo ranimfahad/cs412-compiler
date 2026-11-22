@@ -1,0 +1,9 @@
+// err_malformed_numbers.mini -- badly formed numeric literals.
+
+int a = 12abc;
+float b = 3.;
+float c = 1.5f;
+int d = 99999999999;
+int e = 2147483648;
+float f = 1e;
+int g = 42;   // valid: scanning continues normally after errors

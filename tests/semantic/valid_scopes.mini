@@ -1,0 +1,37 @@
+// valid_scopes.mini -- scope resolution without errors.
+//  - globals used inside functions
+//  - a local that shadows a global, and a nested block that shadows a local
+//  - the same names reused in different functions
+//  - recursion, and calling a function that is defined later in the file
+
+int count = 0;
+float rate = 1.5;
+
+int countdown(int n) {
+    if (n <= 0) {
+        return 0;
+    }
+    count = count + 1;          // the global 'count'
+    return countdown(n - 1);    // recursion
+}
+
+void main() {
+    int count = 10;             // shadows the global 'count'
+    int x = 1;
+    {
+        float x = rate;         // shadows main's 'x' inside this block
+        print(x);
+        {
+            bool x = true;      // shadows again, one level deeper
+            print(x);
+        }
+    }
+    print(x);                   // main's int x again
+    print(count);               // main's local count
+    print(helper(count));       // helper is defined below
+}
+
+int helper(int n) {             // same parameter name as in countdown
+    int x = n * 2;              // same local name as in main
+    return x + countdown(n);
+}

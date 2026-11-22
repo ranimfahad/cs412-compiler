@@ -1,0 +1,24 @@
+// err_type_mismatch.mini -- operators and assignments with the wrong types.
+
+void main() {
+    int i = 1;
+    float f = 2.5;
+    bool b = true;
+
+    int x = f;                  // float -> int is not allowed (no narrowing)
+    i = 3.0;                    // same, in an assignment
+    b = 1;                      // int -> bool
+    i = b + 1;                  // arithmetic on a bool
+    f = f % 2;                  // % needs ints
+    b = i && b;                 // && needs bools
+    b = !i;                     // ! needs a bool
+    i = -b;                     // unary minus needs a number
+    b = b == i;                 // == between bool and int
+    b = b < true;               // < needs numbers
+
+    if (i) { }                  // conditions must be bool
+    while (f) { }
+    for (i = 0; i; i = i + 1) { }
+
+    i = (b + 1) * 2 - 3;        // only one error: the outer operators are skipped
+}

@@ -1,0 +1,19 @@
+=== Symbol Table ===
+NAME         KIND       TYPE               SCOPE                    LEVEL  LINE  TAC NAME
+----         ----       ----               -----                    -----  ----  --------
+count        variable   int                global                   0      7     count
+rate         variable   float              global                   0      8     rate
+countdown    function   int(int)           global                   0      10    countdown
+main         function   void()             global                   0      18    main
+helper       function   int(int)           global                   0      34    helper
+n            parameter  int                countdown                1      10    n
+count        variable   int                main                     1      19    count_1
+x            variable   int                main                     1      20    x
+x            variable   float              main/block@21            2      22    x_1
+x            variable   bool               main/block@21/block@24   3      25    x_2
+n            parameter  int                helper                   1      34    n
+x            variable   int                helper                   1      35    x
+(12 symbols)
+
+Summary: 0 lexical errors, 0 syntax errors, 0 semantic errors
+[exit 0]

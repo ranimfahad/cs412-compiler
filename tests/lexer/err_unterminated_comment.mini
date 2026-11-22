@@ -1,0 +1,8 @@
+// err_unterminated_comment.mini -- a block comment that never ends.
+
+int x = 1;
+print(x);
+
+/* this comment is never closed
+int y = 2;
+print(y);

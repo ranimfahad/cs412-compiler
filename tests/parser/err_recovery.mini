@@ -1,0 +1,27 @@
+// err_recovery.mini -- errors in different places: global declarations,
+// a parameter list, an if condition, a while condition, and just before '}'.
+// Every error is reported, and parsing continues to the end of the file.
+
+int good1 = 1;
+int = 5;                    // missing variable name
+float good2 = 2.0;
+x = 3;                      // statement at global level
+
+int add(int a, int) {       // parameter without a name
+    return a;
+}
+
+void main() {
+    int y = 0;
+    if (y > ) {             // incomplete condition
+        y = 1;
+    }
+    while (y < 10 +) {      // incomplete condition
+        y = y + 1;
+    }
+    y = y + 1               // missing ';' before '}'
+}
+
+void after() {
+    print(good1);           // still parsed after all the errors above
+}

@@ -1,0 +1,30 @@
+// tac_control_flow.mini -- if, if/else, while and for become labels and jumps.
+
+void main() {
+    int i = 0;
+    int sum = 0;
+
+    if (i == 0) {
+        sum = 1;
+    }
+
+    if (sum > 0) {
+        print(1);
+    } else {
+        print(0);
+    }
+
+    while (i < 3) {
+        i = i + 1;
+    }
+
+    for (i = 0; i < 4; i = i + 1) {
+        if (i % 2 == 0) {
+            sum = sum + i;
+        }
+    }
+
+    for (;;) {                  // no condition: loops until return
+        return;
+    }
+}

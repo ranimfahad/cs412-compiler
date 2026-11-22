@@ -1,0 +1,40 @@
+// err_returns.mini -- return statements that do not match the function.
+
+void nothing() {
+    return 5;                   // a void function cannot return a value
+}
+
+int number() {
+    return;                     // an int function must return a value
+}
+
+int wrong_type() {
+    return true;                // bool returned from an int function
+}
+
+int narrowing() {
+    return 2.5;                 // float -> int is not allowed
+}
+
+float widening() {
+    return 2;                   // OK: int -> float
+}
+
+int maybe(int x) {              // no return when x <= 0
+    if (x > 0) {
+        return 1;
+    }
+}
+
+int both_paths(int x) {         // OK: both branches return
+    if (x > 0) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+void main() {
+    print(widening());
+    print(both_paths(1));
+}

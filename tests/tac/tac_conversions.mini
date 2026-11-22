@@ -1,0 +1,21 @@
+// tac_conversions.mini -- implicit int -> float widening becomes an explicit
+// conversion instruction: t = (float) x.
+
+float scale(float v) {
+    return v * 2;               // 2 is converted
+}
+
+float from_int(int n) {
+    return n;                   // the return value is converted
+}
+
+void main() {
+    int i = 3;
+    float f = i;                // assignment
+    f = i + 0.5;                // arithmetic with a float
+    bool b = i < f;             // comparison with a float
+    f = scale(i);               // argument
+    f = from_int(i) + i;
+    print(f);
+    print(b);
+}

@@ -1,0 +1,16 @@
+// tac_short_circuit.mini -- && and || only evaluate the right side when needed.
+
+bool check(int v) {
+    print(v);
+    return v > 0;
+}
+
+void main() {
+    int x = 5;
+    bool ok;
+    ok = x > 0 && check(x);         // check() only runs if x > 0
+    ok = x < 0 || check(x);         // check() only runs if x >= 0
+    if (ok && x != 3 || !ok) {      // && binds tighter than ||
+        print(x);
+    }
+}

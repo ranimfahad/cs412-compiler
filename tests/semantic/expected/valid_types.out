@@ -1,0 +1,20 @@
+=== Symbol Table ===
+NAME         KIND       TYPE               SCOPE                    LEVEL  LINE  TAC NAME
+----         ----       ----               -----                    -----  ----  --------
+half         function   float(float)       global                   0      6     half
+to_float     function   float(int)         global                   0      10    to_float
+main         function   void()             global                   0      14    main
+v            parameter  float              half                     1      6     v
+n            parameter  int                to_float                 1      10    n
+i            variable   int                main                     1      15    i
+f            variable   float              main                     1      16    f
+g            variable   float              main                     1      17    g
+m            variable   int                main                     1      18    m
+small        variable   bool               main                     1      19    small
+mixed        variable   bool               main                     1      20    mixed
+same         variable   bool               main                     1      21    same
+both         variable   bool               main                     1      22    both
+(13 symbols)
+
+Summary: 0 lexical errors, 0 syntax errors, 0 semantic errors
+[exit 0]

@@ -1,0 +1,51 @@
+// valid_control_flow.mini -- if/else, loops, blocks, and the dangling else.
+
+int sum(int n) {
+    int total = 0;
+    int i;
+    for (i = 1; i <= n; i = i + 1) {
+        total = total + i;
+    }
+    return total;
+}
+
+void main() {
+    int x = 3;
+    int y = 0;
+
+    // Dangling else: the else belongs to the NEAREST if (if y > 0).
+    if (x > 0)
+        if (y > 0)
+            print(1);
+        else
+            print(2);
+
+    // else-if chain
+    if (x == 1) {
+        print(10);
+    } else if (x == 2) {
+        print(20);
+    } else {
+        print(30);
+    }
+
+    // Loop bodies without braces, and an empty block
+    while (x > 0) x = x - 1;
+    for (;;) { }
+    for (; y < 3;) y = y + 1;
+
+    // Nested blocks with local declarations
+    {
+        int inner = sum(4);
+        {
+            float deeper = 1.5;
+            print(deeper);
+        }
+        print(inner);
+    }
+
+    // Function calls as statements, with 0, 1 and several arguments
+    main();
+    sum(10);
+    print(sum(sum(2)));
+}

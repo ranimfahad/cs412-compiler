@@ -1,0 +1,19 @@
+// valid_all_tokens.mini -- every kind of token at least once.
+
+// Keywords
+int float bool void if else while for return print
+
+// Boolean literals
+true false
+
+// Operators: arithmetic, assignment, relational, logical
++ - * / %
+=
+== != < <= > >=
+&& || !
+
+// Delimiters
+( ) { } ; ,
+
+// Operators written without spaces (longest match: "<=" not "<" "=")
+a<=b a>=b a==b a!=b a&&b a||!b x=-1

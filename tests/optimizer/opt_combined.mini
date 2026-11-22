@@ -1,0 +1,28 @@
+// opt_combined.mini -- a program where all the optimizations work together.
+
+int weight(int x, int factor) {
+    int result = 0;
+    int i;
+    for (i = 0; i < x; i = i + 1) {
+        result = result + factor * 4 + i;   // factor * 4: moved out, then << 2
+    }
+    return result;
+}
+
+void main() {
+    int size = 3 * 4;                   // folded: 12
+    int debug = 0;
+    int j;
+    int acc = 0;
+
+    for (j = 0; j < 3; j = j + 1) {     // unrolled, then folded
+        acc = acc + size * j;
+    }
+
+    if (debug == 1) {                   // decided: never true
+        print(-1);
+    }
+
+    print(acc);
+    print(weight(size, 2));
+}
